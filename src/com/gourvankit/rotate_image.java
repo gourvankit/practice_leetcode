@@ -4,12 +4,20 @@ import java.util.Arrays;
 
 public class rotate_image {
     public static void rotate(int[][] matrix) {
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[i].length;j++){
-                int temp=matrix[i][matrix.length-1-j];
-                matrix[i][matrix.length-1-j]=matrix[i][j];
-                matrix[i][j]=temp;
+        int l=0;
+        int r=matrix.length-1;
+        while(l<r){
+            for(int i=0;i<r-l;i++){
+                int top=l;
+                int bottom=r;
+                int temp=matrix[top][l+i];
+                matrix[top][l+i]=matrix[bottom-i][l];
+                matrix[bottom-i][l]=matrix[bottom][r-i];
+                matrix[bottom][r-i]=matrix[top+i][r];
+                matrix[top+i][r]=temp;
             }
+            l+=1;
+            r-=1;
         }
         
     }
