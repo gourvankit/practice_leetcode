@@ -1,9 +1,8 @@
 package com.gourvankit;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class Pascals_triangle {//0 1 1 2 4 7
+public class Pascals_triangle {
     static List<List<Integer>> compute(int numRows){
         List<List<Integer>> lst = new ArrayList<>();
         if(numRows == 0) return lst;
@@ -12,6 +11,8 @@ public class Pascals_triangle {//0 1 1 2 4 7
         lst.add(inner_lst);
         if(numRows == 1) return lst;
         List<Integer> prevlst = inner_lst;
+
+
         for(int i = 1; i < numRows; i++) {
             List<Integer> newlist = new ArrayList<Integer>();
             newlist.add(1);
