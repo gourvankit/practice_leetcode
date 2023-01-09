@@ -16,7 +16,7 @@ public class BFS {
             int node=q.poll();
             bfs.add(node);
             for(int i:adj.get(node)){
-                if(visited[i]==false){
+                if(!visited[i]){
                     visited[i]=true;
                     q.add(i);
                 }
