@@ -10,7 +10,7 @@ public class Subsequence {
             System.out.println(myList);
                 return;
         }
-//        myList.add(nums[index]);
+        myList.add(nums[index]);
         subs(nums,index+1,myList);
         myList.remove(myList.size()-1);
         subs(nums,index+1,myList);
@@ -18,7 +18,7 @@ public class Subsequence {
     }
     public static void main(String[] args) {
         List<Integer> myLists=new ArrayList<>();
-        subs(new int[]{2,3},0,myLists);
+        subs(new int[]{1,2,3},0,myLists);
 //        System.out.println(myLists);
 
     }
