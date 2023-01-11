@@ -1,11 +1,10 @@
 package com.gourvankit;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class CycleInGraph {
+public class CycleInUndirectedGraph {
     static class Pair{
         int first;
         int second;
