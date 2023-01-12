@@ -1,6 +1,8 @@
 package com.gourvankit;
 
 import java.util.ArrayList;
+import java.util.List;
+
 //Eventual safe states are those states which do not form cycle in a directed graph
 public class eventualSafeStates {
     static public boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int[] vis,
@@ -38,25 +40,39 @@ public class eventualSafeStates {
         return  myList;
     }
     public static void main(String[] args) {
-        int V = 12;
+//        int V = 12;
+//        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+//        for (int i = 0; i < V; i++) {
+//            adj.add(new ArrayList<>());
+//        }
+//        adj.get(0).add(1);
+//        adj.get(1).add(2);
+//        adj.get(2).add(3);
+//        adj.get(3).add(4);
+//        adj.get(3).add(5);
+//        adj.get(4).add(6);
+//        adj.get(5).add(6);
+//        adj.get(6).add(7);
+//        adj.get(8).add(1);
+//        adj.get(8).add(9);
+//        adj.get(9).add(10);
+//        adj.get(10).add(8);
+//        adj.get(11).add(9);
+//        System.out.println(eventualStates(V,adj));
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
-        for (int i = 0; i < V; i++) {
+        for (int i = 0; i < 7; i++) {
             adj.add(new ArrayList<>());
         }
-        adj.get(0).add(1);
-        adj.get(1).add(2);
-        adj.get(2).add(3);
-        adj.get(3).add(4);
-        adj.get(3).add(5);
-        adj.get(4).add(6);
-        adj.get(5).add(6);
-        adj.get(6).add(7);
-        adj.get(8).add(1);
-        adj.get(8).add(9);
-        adj.get(9).add(10);
-        adj.get(10).add(8);
-        adj.get(11).add(9);
-        System.out.println(eventualStates(V,adj));
+        int[][] graph=new int[][]{{1,2},{2,3},{5},{0},{5},{},{}};
+            for(int i=0;i<graph.length;i++){
+                for(int j=0;j<graph[i].length;j++){
+                    adj.get(i).add(graph[i][j]);
+                }
+            }
+        System.out.println(adj.get(0));
+
+
+
 
     }
 }
