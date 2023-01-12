@@ -1,7 +1,7 @@
 package com.gourvankit;
 
 import java.util.ArrayList;
-
+//Eventual safe states are those states which do not form cycle in a directed graph
 public class eventualSafeStates {
     static public boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int[] vis,
                                    int[] pathVis) {
