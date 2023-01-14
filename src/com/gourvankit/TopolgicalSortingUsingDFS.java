@@ -3,9 +3,10 @@ package com.gourvankit;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class TopolgicalSorting {
+public class TopolgicalSortingUsingDFS {
     // This is a type of sorting within the vertex of the graphs and is applicable to only
-    // DAG(Directed acyclic graph).
+    // DAG(Directed acyclic graph). It is linear ordering of the vertices such that if there is
+    // edge between two vertices u & v then u must occur before v.
     static public void dfs(int index,int[] vis, Stack<Integer> myStack,ArrayList<ArrayList<Integer>> adj){
         vis[index]=1;
         for(int it:adj.get(index)){
