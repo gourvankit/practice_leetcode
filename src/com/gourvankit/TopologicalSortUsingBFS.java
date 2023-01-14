@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-// This algorithm is also called Kahn's algorithm
+// This algorithm is also called Kahn's algorithm. The best way to find out whether the
+// graph has a cycle or not is to use topo sort algo and if the size of the topo array equals
+// to the number of vertex then it does not have cycle.
 public class TopologicalSortUsingBFS {
     static public int[] topologicalSort(int V, ArrayList<ArrayList<Integer>> adj){
         int[] indegree=new int[V];
