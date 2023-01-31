@@ -14,6 +14,21 @@ public class CycleInUndirectedGraph {
             this.second = second;
         }
     }
+    static public boolean checkCycleDFS(int src,int parent, int V, ArrayList<ArrayList<Integer>> adj){
+        boolean[] vis=new boolean[V];
+        vis[src]=true;
+
+        for(int it:adj.get(src)){
+            if(!vis[it]){
+               if(checkCycleDFS(it,src, V, adj)){
+                   return true;
+               };
+            }else if(parent!=it){
+                return true;
+            }
+        }
+        return false;
+    }
     static public boolean checkCycle(int src, int V, ArrayList<ArrayList<Integer>> adj){
         boolean[] vis=new boolean[V];
         vis[src]=true;

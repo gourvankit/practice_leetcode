@@ -3,28 +3,44 @@ package com.gourvankit;
 import java.util.ArrayList;
 
 public class NumberOfProvinces {
-    static public void solveDfs(int node,ArrayList<ArrayList<Integer>> adj,ArrayList<Integer> dfs,boolean[] visited){
-        visited[node]=true;
-            for(int n1:adj.get(node)){
-                if(!visited[n1]){
-                    solveDfs(n1,adj,dfs,visited);
-                }
-            }
-    }
-    static public Integer dfsOfGraph(int V,ArrayList<ArrayList<Integer>> adj){
-        boolean[] visited=new boolean[V];
-        ArrayList<Integer> dfs=new ArrayList<>();
-        int counter=0;
-        for(int i=1;i<V;i++) {
-            counter++;
-            if(!visited[i]){
-                solveDfs(0,adj,dfs,visited);
+    private static void dfs(int node,
+                            ArrayList<ArrayList<Integer>> adjLs ,
+                            int vis[]) {
+        vis[node] = 1;
+        for(Integer it: adjLs.get(node)) {
+            if(vis[it] == 0) {
+                dfs(it, adjLs, vis);
             }
         }
-        return counter;
+    }
+
+    static int numProvinces(ArrayList<ArrayList<Integer>> adj, int V) {
+        ArrayList<ArrayList<Integer>> adjLs = new ArrayList<ArrayList<Integer>>();
+        for(int i = 0;i<V;i++) {
+            adjLs.add(new ArrayList<Integer>());
+        }
+
+        for(int i = 0;i<V;i++) {
+            for(int j = 0;j<V;j++) {
+                if(adj.get(i).get(j) == 1 && i != j) {
+                    adjLs.get(i).add(j);
+                    adjLs.get(j).add(i);
+                }
+            }
+        }
+        System.out.println(adjLs);
+        int vis[] = new int[V];
+        int cnt = 0;
+        for(int i = 0;i<V;i++) {
+            if(vis[i] == 0) {
+                cnt++;
+                dfs(i, adjLs, vis);
+            }
+        }
+        return cnt;
     }
     public static void main(String[] args) {
-        ArrayList<ArrayList<Integer> > adj = new ArrayList<ArrayList<Integer> >();
+        ArrayList<ArrayList<Integer> > adj = new ArrayList<ArrayList<Integer>>();
 
         adj.add(new ArrayList<Integer>());
         adj.get(0).add(0, 1);
@@ -38,6 +54,6 @@ public class NumberOfProvinces {
         adj.get(2).add(0, 1);
         adj.get(2).add(1, 0);
         adj.get(2).add(2, 1);
-        System.out.println(dfsOfGraph(3,adj));
+        System.out.println(numProvinces(adj,3));
     }
 }
