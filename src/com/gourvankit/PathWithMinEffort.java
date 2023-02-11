@@ -33,7 +33,7 @@ public class PathWithMinEffort {
             int row=pq.peek().second;
             int col=pq.peek().third;
             pq.remove();
-            if(row==n-1 && col==m-1){
+            if(row==n-1 && col==m-1){// to check after popping the element from the Queue
                 return diff;
             }
             for(int i=0;i<4;i++){
