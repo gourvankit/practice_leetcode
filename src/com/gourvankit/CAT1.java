@@ -14,7 +14,7 @@ public class CAT1 {
             int n=Integer.parseInt(String.valueOf(s.charAt(i)));
             if(m.containsKey(n)){
                 m.put(n,m.get(n)+1);
-            c}else{
+            }else{
                 m.put(n,1);
                 myList.add(n);
             }

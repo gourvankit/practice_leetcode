@@ -28,7 +28,7 @@ public class eventualSafeStatesUsingTopoSort {
             int node=q.peek();
             q.remove();
             safeNodes.add(node);
-            for(int it:adj.get(node)){
+            for(int it:adjRev.get(node)){
                 indegree[it]--;
                 if(indegree[it]==0){
                    q.add(it);

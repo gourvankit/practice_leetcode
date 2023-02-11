@@ -49,6 +49,7 @@ public class checkBipartite {
 
 
     }
+
     public static void main(String[] args) {
 
     }

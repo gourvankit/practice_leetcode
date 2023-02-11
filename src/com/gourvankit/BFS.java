@@ -1,9 +1,6 @@
 package com.gourvankit;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class BFS {
     static public List<Integer> bfs(int V, ArrayList<ArrayList<Integer>> adj){
@@ -25,20 +22,21 @@ public class BFS {
         return bfs;
 
     }
-    public static void main(String[] args) {
-        ArrayList < ArrayList < Integer >> adj = new ArrayList < > ();
-        for (int i = 0; i < 5; i++) {
-            adj.add(new ArrayList < > ());
+    static public void test(int[][] graph){
+        ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
+        for(int i=0;i<graph.length;i++){
+            adj.add(new ArrayList<>());
         }
-        adj.get(0).add(1);
-        adj.get(1).add(0);
-        adj.get(0).add(4);
-        adj.get(4).add(0);
-        adj.get(1).add(2);
-        adj.get(2).add(1);
-        adj.get(1).add(3);
-        adj.get(3).add(1);
-        System.out.println(bfs(5,adj));
+        for(int i=0;i<graph.length;i++){
+            for(int j=0;j<graph[i].length;j++){
+                adj.get(i).add(graph[i][j]);
 
+            }
+        }
+        System.out.println(adj);
+    }
+    public static void main(String[] args) {
+//
+        System.out.println('d'-'a');
     }
 }
