@@ -20,6 +20,8 @@ public class BellmanFord {
         }
         // One more iteration is to be performed so that no more shorter path is
         // available because we are in a loop
+        // if we are in a loop then the min will change again and again and thus means
+        // that the graph has -ve cycle
         for(ArrayList<Integer> it:ls){
             int u=it.get(0);
             int adn=it.get(1);
