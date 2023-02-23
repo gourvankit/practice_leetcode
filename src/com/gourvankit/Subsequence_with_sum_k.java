@@ -6,6 +6,20 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Subsequence_with_sum_k {
+    static public int recur(int[] nums,ArrayList<Integer> ls,int target,int index){
+        if(index==nums.length && ls.size()>=1){
+            if((ls.get(0)+ls.get(ls.size()-1))<=target){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+        ls.add(nums[index]);
+        int x= recur(nums,ls,target, index+1);
+        ls.remove(ls.size()-1);
+        int y= recur(nums,ls,target,index+1);
+        return x+y;
+    }
     static public void findCombination(int[] nums,int index,int target,List<List<Integer>> myLists,List<Integer>myList){
 
         if(target==0){
@@ -32,6 +46,7 @@ public class Subsequence_with_sum_k {
         return myLists;
     }
     public static void main(String[] args) {
-        System.out.println((combinationSum2(new int[]{10,1,2,7,6,1,5},7)));
+        ArrayList<Integer> ls=new ArrayList<>();
+        System.out.println((recur(new int[]{3,3,6,8},ls,9,0)));
     }
 }
