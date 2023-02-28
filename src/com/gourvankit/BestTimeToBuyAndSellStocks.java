@@ -1,5 +1,7 @@
 package com.gourvankit;
 
+import java.util.Arrays;
+
 public class BestTimeToBuyAndSellStocks {
     public int maxProfit(int[] prices) {
         int maxProfit=0;
@@ -21,6 +23,8 @@ public class BestTimeToBuyAndSellStocks {
     }
 
     public static void main(String[] args) {
+
+
 
     }
 }
