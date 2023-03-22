@@ -1,5 +1,7 @@
 package com.gourvankit;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -58,6 +60,7 @@ public class DistanceOfNearest1 {
                 {1,1,0,0},
                 {0,0,1,1}
         };
+        ArrayList<Character> ls=new ArrayList<>();
         int[][] ans=nearestDistance(grid);
         for(int i = 0; i < ans.length; i++){
             for(int j = 0; j < ans[i].length; j++){

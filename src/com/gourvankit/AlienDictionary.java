@@ -1,9 +1,6 @@
 package com.gourvankit;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class AlienDictionary {
     static private List<Integer> topoSort(int V, List<List<Integer>> adj) {
@@ -53,6 +50,7 @@ public class AlienDictionary {
             }
         }
         System.out.println(adj);
+        Scanner sc=new Scanner(System.in);
         List<Integer> topo = topoSort(K, adj);
         String ans = "";
         for (int it : topo) {

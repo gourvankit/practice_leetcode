@@ -19,7 +19,7 @@ public class Subsequence {
     public static void main(String[] args) {
         List<Integer> myLists=new ArrayList<>();
         List<List<Integer>> myLists2=new ArrayList<>();
-        subs(new int[]{1,2,2,3,3},0,myLists,myLists2);
+        subs(new int[]{1,2,3},0,myLists,myLists2);
 
         int maxProduct=0;
         System.out.println(myLists2);

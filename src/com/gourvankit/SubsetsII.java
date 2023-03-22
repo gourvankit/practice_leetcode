@@ -22,10 +22,11 @@ public class SubsetsII {
         return mylists;
     }
     public static void main(String[] args) {
-        List<List<Integer>> mylists=new ArrayList<>();
-        List<Integer> mylist=new ArrayList<>();
-        recurr(new int[]{1,2,3},0,mylists,mylist);
-        System.out.println(mylists);
+//        List<List<Integer>> mylists=new ArrayList<>();
+//        List<Integer> mylist=new ArrayList<>();
+//        recurr(new int[]{1,3,5,2,7,5},0,mylists,mylist);
+//        System.out.println(mylists);
+
 
     }
 }

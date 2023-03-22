@@ -5,29 +5,29 @@ import java.util.*;
 public class CAT1 {
 
     public static void main(String[] args) {
-        HashMap<Integer,Integer> m=new HashMap<>();
-        String s="12223344";
-        char[][] arr=new char[][]{{'*'},{'a','b','c'},{'d','e','f'},{'g','h','i'},{'j','k','l'},
-                {'m','n','o'},{'p','q','r','s'},{'t','u','v'},{'w','x','y','z'}};
-        ArrayList<Integer> myList=new ArrayList<>();
-        for(int i=0;i<s.length();i++){
-            int n=Integer.parseInt(String.valueOf(s.charAt(i)));
-            if(m.containsKey(n)){
-                m.put(n,m.get(n)+1);
-            }else{
-                m.put(n,1);
-                myList.add(n);
-            }
+        TreeMap<Integer, String> p1 = new TreeMap<Integer, String>();
+        Scanner sc = new Scanner(System.in);
+        int num =sc.nextInt();
+        String name;
+        int mark;
+        while(num!=0)
+        {
+            mark=sc.nextInt();
+            name=sc.next();
+            p1.put(mark,name);
+            num--;
+
         }
-        StringBuilder ans= new StringBuilder();
-        for(int it:myList){
-            int index=it;
-            int times=m.get(index);
-            ans.append(arr[index][times - 1]);
+        Map<Integer, String> Rank = p1.descendingMap();
+        System.out.println(Rank);
+        int count = 0;
+        for (NavigableMap.Entry<Integer, String> entry:Rank.entrySet()) {
+            count++;
+            String str = Integer.toString(count);
+            System.out.println("Rank " + str + ": "
+                    + entry.getValue());
+        }}
         }
-        System.out.println(ans);
-         }
-    }
 
 
 

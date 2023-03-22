@@ -425,20 +425,32 @@ public class Strings1 {
 //        }
 //        return finalValue;
 //    }
-public static void rotate(int[][] matrix) {
-    System.out.println(Arrays.toString(matrix));
-    int[][] ans=new int[matrix.length][];
-    int k=0;int j=0;
 
-    for(int i= matrix.length-1;i>=0;i--){
-       ans[j][k]=matrix[i][k];
-       
+    static public void compress(char[] chars) {
+        int n = chars.length;
+
+        int i = 0, j = 0;
+        while (i < n) {
+            int count = 1;
+            while (i < n - 1 && chars[i] == chars[i + 1]) {
+                count++;
+                i++;
+            }
+
+            chars[j++] = chars[i++];
+            if (count > 1) {
+                String countStr = String.valueOf(count);
+                for (int k = 0; k < countStr.length(); k++) {
+                    chars[j++] = countStr.charAt(k);
+                }
+            }
+        }
+        System.out.println(chars);
     }
-    System.out.println(ans[0][0]);
-}
     public static void main(String args[])
         {
-            rotate(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
+            compress(new char[]{'a','a','b','b'});
+
 //            ArrayList<Integer> myListnew ArrayList<>();
 //            myList.add(3);
 //            myList.add(2);
