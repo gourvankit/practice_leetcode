@@ -2,38 +2,57 @@ package com.gourvankit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Subsequence {
-    static public void subs(int[] nums,int index,List<Integer> myList,List<List<Integer>> myLists){
+    static public void subs(int[] nums,int index,List<Integer> myList){
         if(index>=nums.length){
-            myLists.add(new ArrayList<>(myList));
+            int sum=0;
+            for(int c:myList){
+                sum+=c;
+            }
+//            System.out.println(myList);
+//            System.out.println(sum);
                 return;
         }
         myList.add(nums[index]);
-        subs(nums,index+1,myList,myLists);
+        subs(nums,index+1,myList);
         myList.remove(myList.size()-1);
-        subs(nums,index+1,myList,myLists);
+        subs(nums,index+1,myList);
 
     }
-    public static void main(String[] args) {
-        List<Integer> myLists=new ArrayList<>();
-        List<List<Integer>> myLists2=new ArrayList<>();
-        subs(new int[]{1,2,3},0,myLists,myLists2);
-
-        int maxProduct=0;
-        System.out.println(myLists2);
-        for(int i=0;i<myLists2.size()-1;i++){
-            int sum=0;
-            for(int j=0;j<myLists2.get(i).size();j++){
-                sum+=myLists2.get(i).get(j);
-            }
-//            System.out.print(sum);
-//            System.out.print(myLists2.get(i).get(0));
-//            System.out.println();
-            maxProduct=Math.max(sum*myLists2.get(i).get(0),maxProduct);
+    static void subsetSumsHelper(int ind, int sum, ArrayList < Integer > arr, int N, ArrayList < Integer > sumSubset) {
+        if (ind == N) {
+            sumSubset.add(sum);
+            return;
         }
-        System.out.println(maxProduct);
+
+        // pick the element
+        subsetSumsHelper(ind + 1, sum + arr.get(ind), arr, N, sumSubset);
+
+        // Do-not pick the element
+        subsetSumsHelper(ind + 1, sum, arr, N, sumSubset);
+    }
+
+    static ArrayList < Integer > subsetSums(ArrayList < Integer > arr, int N) {
+
+        ArrayList < Integer > sumSubset = new ArrayList < > ();
+        subsetSumsHelper(0, 0, arr, N, sumSubset);
+        Collections.sort(sumSubset);
+        return sumSubset;
+    }
+
+    public static void main(String[] args) {
+        ArrayList < Integer > arr = new ArrayList < > ();
+        arr.add(3);
+        arr.add(1);
+        arr.add(2);
+        ArrayList < Integer > ans = subsetSums(arr, arr.size());
+        Collections.sort(ans);
+        System.out.println("The sum of each subset is ");
+        for (int i = 0; i < ans.size(); i++)
+            System.out.print(ans.get(i) + " ");
 
     }
 }

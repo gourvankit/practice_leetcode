@@ -20,7 +20,17 @@ public class CombinationSumII {
         }
 
     }
+    static void recurr(int[] nums,int index,int target){
+        int sum=0;
+        if(index>=nums.length){
+            sum++;
+            System.out.println(sum);
+            return;
+        }
+        recurr(nums,index+1,target-nums[index]);
+        recurr(nums,index+1,target);
 
+    }
     public static void main(String[] args) {
         int[] candidates=new int[]{10,1,2,7,6,1,5};
         int target=8;
@@ -29,5 +39,6 @@ public class CombinationSumII {
         Arrays.sort(candidates);
         re(candidates,0,target,mylists,mylist);
         System.out.println(mylists);
+//        recurr(new int[]{3,5,6,7},0,9);
     }
 }
