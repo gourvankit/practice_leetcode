@@ -1,8 +1,10 @@
 package com.gourvankit;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RatInAMaze {
+
     static void recurr(int i, int j, int a[][], int n, ArrayList < String > ans, String move,
                        int vis[][], int di[], int dj[]) {
         if (i == n - 1 && j == n - 1) {
