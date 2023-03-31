@@ -28,10 +28,8 @@ public class Subsequence {
             return;
         }
 
-        // pick the element
         subsetSumsHelper(ind + 1, sum + arr.get(ind), arr, N, sumSubset);
 
-        // Do-not pick the element
         subsetSumsHelper(ind + 1, sum, arr, N, sumSubset);
     }
 

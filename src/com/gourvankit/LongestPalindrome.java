@@ -16,7 +16,6 @@ public class LongestPalindrome {
                 lefttPivot--;
                 rightPivot++;
             }
-            // Case for checking if the palindrome is even
             lefttPivot=i;
             rightPivot=i+1;
             while(lefttPivot>=0 && rightPivot<=s.length()-1 && s.charAt(lefttPivot)==s.charAt(rightPivot)){

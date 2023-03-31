@@ -36,7 +36,9 @@ public class RatInAMaze {
     }
 
     public static void main(String[] args) {
-
+        String s="abcd";
+        String d=s.substring(2,10);
+        System.out.println(d);
 
     }
 }
