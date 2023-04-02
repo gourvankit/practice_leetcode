@@ -25,6 +25,9 @@ public class MergeTwoSortedArrayO1Space {
     }
 
     public static void main(String[] args) {
-
+        StringBuilder sb=new StringBuilder();
+        sb.append("abc");
+        sb.delete(sb.length()-1,sb.length());
+        System.out.println(sb);
     }
 }
