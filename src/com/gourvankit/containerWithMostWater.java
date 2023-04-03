@@ -11,7 +11,7 @@ public class containerWithMostWater {
         }
         return area;
     }
-    static int maxAreaOptimal(int[] heights){
+    static int maxAreaOptimal(int[] height){
         int area=0;
         int lp=0;
         int rp=height.length-1;
